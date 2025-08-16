@@ -1,12 +1,30 @@
-rootProject.name = "Example-Expansion"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+rootProject.name = "PlatformInfo-Expansion"
 
 dependencyResolutionManagement {
     repositories {
         maven("https://repo.papermc.io/repository/maven-public/")
         maven("https://central.sonatype.com/repository/maven-snapshots/")
+        maven("https://repo.spongepowered.org/repository/maven-public/")
+    }
+}
+
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        maven("https://maven.fabricmc.net/")
+        maven("https://maven.quiltmc.org/repository/release/")
     }
 }
 
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+    id("fabric-loom") version "1.11-SNAPSHOT"
+}
+
+arrayOf("common", "paper", "sponge", "fabric", "velocity").forEach {
+    include("platforminfo-expansion-$it")
+
+    project(":platforminfo-expansion-$it").projectDir = file(it)
 }

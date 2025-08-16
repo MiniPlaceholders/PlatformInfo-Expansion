@@ -1,0 +1,9 @@
+plugins {
+    java
+}
+
+dependencies {
+    compileOnly(libs.miniplaceholders)
+    compileOnly(libs.adventure.api)
+    compileOnly(libs.adventure.minimessage)
+}
