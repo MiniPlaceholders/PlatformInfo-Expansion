@@ -20,7 +20,7 @@ pluginManagement {
 
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
-    id("fabric-loom") version "1.11-SNAPSHOT"
+    id("fabric-loom") version "1.11.8"
 }
 
 arrayOf("common", "paper", "sponge", "fabric", "velocity").forEach {
